@@ -97,32 +97,34 @@ class_name(671, 'Info Visualization').
 class_name(691, 'MBI Capstone').
 
 /**
-* Define class times and locations.
+* Define class times and locations. The fact can be read like this:
+*
+* class_details(class number, start time, end time, days, location)
 */
-class_details(467, '10:00AM - 10:50AM', 'MWF', 'MAK-B-1-118').
-class_details(463, '2:00PM - 2:50PM', 'MWF', 'MAK-D-2-123').
-class_details(460, '10:00AM - 11:15AM', 'TR', 'MAK-B-1-116').
-class_details(457, '2:00PM - 2:50PM', 'MWF', 'MAK-D-1-117').
-class_details(452, '1:00PM - 1:50PM', 'MWF', 'MAK-D-1-117').
-class_details(451, '10:00AM - 10:50AM', 'MWF', 'MAK-B-1-118').
-class_details(450, '12:00PM - 12:50PM', 'MWF', 'MAK-D-1-117').
-class_details(443, '11:00AM - 11:50AM', 'MWF', 'MAK-B-1-124').
-class_details(437, '10:00AM - 10:50AM', 'MWF', 'MAK-B-1-118').
-class_details(375, '6:00PM - 7:50PM', 'R', 'EC 612').
-class_details(371, '4:00PM - 5:15PM', 'TR', 'MAK-D-1-117').
-class_details(365, '10:00AM - 11:15AM', 'TR', 'MAK-D-1-117').
-class_details(361, '4:00PM - 5:15PM', 'MW', 'MAK-B-1-116').
-class_details(358, '3:00PM - 3:50PM', 'MWF', 'MAK-A-1-105').
-class_details(353, '12:00PM - 12:50PM', 'MWF', 'MAK-B-1-118').
-class_details(350, '10:00AM - 10:50AM', 'MWF', 'MAK-D-1-117').
-class_details(343, '1:00PM - 1:50PM', 'MWF', 'MAK-B-1-124').
-class_details(339, '1:00PM - 2:15PM', 'TR', 'MAK-A-1-105').
-class_details(337, '3:00PM - 3:50PM', 'TR', 'MAK-B-1-124').
-class_details(333, '6:00PM - 8:50PM', 'W', 'MAK-D-1-117').
-class_details(330, '9:00AM - 9:50AM', 'MWF', 'MAK-D-1-117').
-class_details(661, '6:00PM - 8:50PM', 'T', 'EC 612').
-class_details(671, '6:00PM - 8:50PM', 'R', 'EC 612').
-class_details(691, '6:00PM - 8:50PM', 'M', 'EC 612').
+class_details(467, '10:00AM', '10:50AM', 'MWF', 'MAK-B-1-118').
+class_details(463, '2:00PM', '2:50PM', 'MWF', 'MAK-D-2-123').
+class_details(460, '10:00AM', '11:15AM', 'TR', 'MAK-B-1-116').
+class_details(457, '2:00PM', '2:50PM', 'MWF', 'MAK-D-1-117').
+class_details(452, '1:00PM', '1:50PM', 'MWF', 'MAK-D-1-117').
+class_details(451, '10:00AM', '10:50AM', 'MWF', 'MAK-B-1-118').
+class_details(450, '12:00PM', '12:50PM', 'MWF', 'MAK-D-1-117').
+class_details(443, '11:00AM', '11:50AM', 'MWF', 'MAK-B-1-124').
+class_details(437, '10:00AM', '10:50AM', 'MWF', 'MAK-B-1-118').
+class_details(375, '6:00PM', '7:50PM', 'R', 'EC 612').
+class_details(371, '4:00PM', '5:15PM', 'TR', 'MAK-D-1-117').
+class_details(365, '10:00AM', '11:15AM', 'TR', 'MAK-D-1-117').
+class_details(361, '4:00PM', '5:15PM', 'MW', 'MAK-B-1-116').
+class_details(358, '3:00PM', '3:50PM', 'MWF', 'MAK-A-1-105').
+class_details(353, '12:00PM', '12:50PM', 'MWF', 'MAK-B-1-118').
+class_details(350, '10:00AM', '10:50AM', 'MWF', 'MAK-D-1-117').
+class_details(343, '1:00PM', '1:50PM', 'MWF', 'MAK-B-1-124').
+class_details(339, '1:00PM', '2:15PM', 'TR', 'MAK-A-1-105').
+class_details(337, '3:00PM', '3:50PM', 'TR', 'MAK-B-1-124').
+class_details(333, '6:00PM', '8:50PM', 'W', 'MAK-D-1-117').
+class_details(330, '9:00AM', '9:50AM', 'MWF', 'MAK-D-1-117').
+class_details(661, '6:00PM', '8:50PM', 'T', 'EC 612').
+class_details(671, '6:00PM', '8:50PM', 'R', 'EC 612').
+class_details(691, '6:00PM', '8:50PM', 'M', 'EC 612').
 
 /**
 * Define the classes each professor teaches.
@@ -167,3 +169,56 @@ taking(kara_thrace, 365).
 taking(gaius_baltar, 463).
 taking(gaius_baltar, 460).
 taking(gaius_baltar, 375).
+
+
+/**********************************************************************
+* 1) What does Dr. J. Leidig teach?
+*
+* @TODO: Fix the queries.
+*
+* Inputs: (Professor)
+* Description: Returns the courses Professor teaches.
+**********************************************************************/
+answer_one(P) :- teaches(P, _).
+
+/**********************************************************************
+* 2) Does Dr. J. Leidig teach Database?
+*
+* Inputs: (Professor)
+* Description: Returns whether or not Professor teaches Database.
+**********************************************************************/
+answer_two(P) :-
+    teaches(P, 353).
+
+
+/**********************************************************************
+* 3) What is Dr. J. Leidig's schedule?
+*
+* Inputs: (Professor)
+* Description: Returns Professor's schedule.
+**********************************************************************/
+answer_three(P) :-
+    class_details(teaches(P, _)).
+
+
+/**********************************************************************
+* 4) Who is scheduled to teach what subject on TTH, 10AM?
+*
+* Inputs: (Days, StartTime)
+* Description: Returns who teaches what on Days at Time.
+**********************************************************************/
+answer_four(D, T) :-
+    class_details(_, T, _, D, _).
+
+
+/**
+* Print answers to questions.
+*
+* @TODO: Print variable values instead of memory addresses.
+*/
+print_answers :-
+    write('What does Dr. J. Leidig teach?'), nl,
+    findall(X, answer_one(j_leidig), X),
+    write(X), nl.
+
+?- print_answers.
