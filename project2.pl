@@ -48,6 +48,27 @@ student(kara_thrace).
 student(gaius_baltar).
 
 /**
+* Define the department each professor belongs to.
+*/
+department(engelsma, 'CS').
+department(lange, 'IS').
+department(p_leidig, 'IS').
+department(kalafut, 'CS').
+department(wolffe, 'CS').
+department(kurmas, 'CS').
+department(schymik, 'IS').
+department(peterman, 'IS').
+department(el-said, 'CS').
+department(scripps, 'CS').
+department(j_leidig, 'CS').
+department(trefftz, 'CS').
+department(alsabbagh, 'CS').
+department(jorgensen, 'CS').
+department(nandigam, 'CS').
+department(posada, 'IS').
+department(du, 'IS').
+
+/**
 * Define the class names.
 */
 class_name(467, 'CS Project').
