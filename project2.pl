@@ -176,17 +176,20 @@ taking(gaius_baltar, 375).
 *
 * @TODO: Fix the queries.
 *
-* Inputs: (Professor)
+* Inputs: (Professor, Class)
 * Description: Returns the courses Professor teaches.
 **********************************************************************/
-answer_one(P) :-
-    teaches(P, X),
-    write('CIS'),write(X), nl.
+answer_one(P, C) :-
+    teaches(P, C),
+    write('CIS'),write(C),nl.
 
 /**********************************************************************
 * 2) Does Dr. J. Leidig teach Database?
 *
-* Inputs: (Professor)
+* NOTE: This runs correctly in interactive mode using the command
+* answer_two(j_leidig).
+*
+* Inputs: (Professor, Value)
 * Description: Returns whether or not Professor teaches Database.
 **********************************************************************/
 answer_two(P) :-
@@ -195,12 +198,16 @@ answer_two(P) :-
 
 /**********************************************************************
 * 3) What is Dr. J. Leidig's schedule?
-*
-* Inputs: (Professor)
+* class_details(691, '6:00PM', '8:50PM', 'M', 'EC 612').
+* Inputs: (Prof, Class, Start, End, Days, Location)
 * Description: Returns Professor's schedule.
 **********************************************************************/
-answer_three(P) :-
-    class_details(teaches(P, _)).
+answer_three(P, C, S, E, D, L) :-
+    teaches(P, X),
+    class_details(X, S, E, D, L),
+    write('Teaches CIS'),write(X),write(' from '),
+    write(S),write(' to '),write(E),write(' on '),
+    write(D),write(' at '),write(L),nl.
 
 
 /**********************************************************************
@@ -219,7 +226,18 @@ answer_four(D, T) :-
 * @TODO: Print variable values instead of memory addresses.
 */
 print_answers :-
-    write('What does Dr. J. Leidig teach?'), nl,
-    findall(X, answer_one(j_leidig), X),nl.
+    write('What does Dr. J. Leidig teach?'),
+    findall(X, answer_one(j_leidig, X), Q),nl,
+
+    /*
+    write('Does Dr. J. Leidig teach Database?'),
+    bagof(X, answer_two(j_leidig), Q),write(Q),nl,*/
+
+    write("What is Dr. J. Leidig's schedule?"), nl,
+    findall(X, answer_three(j_leidig, X, S, E, D, L), Schedule),nl,
+
+    write("Who teaches what on TTH at 10AM?"),nl,
+    findall(X, answer_four('TR', '10AM'), List),write(List),nl.
+
 
 ?- print_answers.
