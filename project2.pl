@@ -179,7 +179,9 @@ taking(gaius_baltar, 375).
 * Inputs: (Professor)
 * Description: Returns the courses Professor teaches.
 **********************************************************************/
-answer_one(P) :- teaches(P, _).
+answer_one(P) :-
+    teaches(P, X),
+    write('CIS'),write(X), nl.
 
 /**********************************************************************
 * 2) Does Dr. J. Leidig teach Database?
@@ -218,7 +220,6 @@ answer_four(D, T) :-
 */
 print_answers :-
     write('What does Dr. J. Leidig teach?'), nl,
-    findall(X, answer_one(j_leidig), X),
-    write(X), nl.
+    findall(X, answer_one(j_leidig), X),nl.
 
 ?- print_answers.
