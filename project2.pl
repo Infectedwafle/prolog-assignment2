@@ -82,7 +82,6 @@ department("Dr. J. Leidig", "CIS").
 department("Dr. J. Leidig", "CIS").
 department("Dr. J. Leidig", "CIS").
 
-
 /**
 * Define the class names.
 */
@@ -110,7 +109,6 @@ class_name(330, "Systems Analysis and Design").
 class_name(661, "Medical and BioInformatics").
 class_name(671, "Information Visualization").
 class_name(691, "MBI Capstone").
-
 
 /**
 * Define class times and locations. The fact can be read like this:
@@ -195,7 +193,7 @@ taking("Gaius Baltar", 375).
 **********************************************************************/
 answer_one(P, C) :-
     teaches(P, C),
-    write("CIS "),write(C),nl.
+    write("CIS "), write(C), nl.
 
 /**********************************************************************
 * 2) Does Dr. J. Leidig teach Database?
@@ -215,9 +213,9 @@ answer_two(P) :-
 answer_three(P, _, S, E, D, L) :-
     teaches(P, X),
     class_details(X, S, E, D, L),
-    write('Teaches CIS'),write(X),write(' from '),
-    write(S),write(' to '),write(E),write(' on '),
-    write(D),write(' at '),write(L),nl.
+    write('Teaches CIS'), write(X), write(' from '),
+    write(S),write(' to '), write(E), write(' on '),
+    write(D),write(' at '), write(L), nl.
 
 /**********************************************************************
 * 4) Who is scheduled to teach what subject on TTH, 10AM?
@@ -268,10 +266,21 @@ answer_seven(X, Y) :-
     taking(Y, C),
     write(C), nl.
 
+/**********************************************************************
+* 8) Who is taking CS courses?
+*
+* Inputs: (Student)
+* Description: Returns a list of students taking at least one CS class.
+**********************************************************************/
+answer_eight(S):-
+    taking(S, C),
+    teaches(P, C),
+    department(P, "CS"),
+    write(S), nl.
+
+
 /**
 * Print answers to questions.
-*
-* @TODO: Print variable values instead of memory addresses.
 */
 print_answers :-
     write("1 - What does Dr. J. Leidig teach?\n"), nl,
@@ -294,6 +303,10 @@ print_answers :-
     setof(X, answer_six("Dr. J. Leidig"), X), nl,
 
     write("7 - What classes do Jim and Pam have in common?\n"), nl,
-    findall(X, answer_seven("Jim", "Pam"), Y), nl.
+    findall(X, answer_seven("Jim", "Pam"), Y), nl,
+
+    /** TODO: Remove duplicates from this answer. */
+    write("8 - Who is taking CS courses?\n"), nl,
+    setof(X, answer_eight(_), X), nl.
 
 ?- print_answers.
