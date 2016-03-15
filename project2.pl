@@ -190,8 +190,6 @@ taking("Gaius Baltar", 375).
 /**********************************************************************
 * 1) What does Dr. J. Leidig teach?
 *
-* @TODO: Fix the queries.
-*
 * Inputs: (Professor, Class)
 * Description: Returns the courses Professor teaches.
 **********************************************************************/
@@ -201,9 +199,6 @@ answer_one(P, C) :-
 
 /**********************************************************************
 * 2) Does Dr. J. Leidig teach Database?
-*
-* NOTE: This runs correctly in interactive mode using the command
-* answer_two(j_leidig).
 *
 * Inputs: (Professor, Value)
 * Description: Returns whether or not Professor teaches Database.
@@ -236,7 +231,13 @@ answer_four(D, T) :-
     class_details(C, T, _, D, _), teaches(X, C),
     write(X), nl.
 
-
+/**********************************************************************
+* 5) When do Dr. J. Leidig and Dr. El-Said teach at the same time?
+*
+* Inputs: (Professor1, Professor2)
+* Description: Returns whether or not two professors teach at the
+* same time.
+**********************************************************************/
 answer_five(X, Y) :-
     teaches(X, I),
     teaches(Y, J),
