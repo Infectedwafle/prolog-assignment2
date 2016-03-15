@@ -245,6 +245,20 @@ answer_five(X, Y) :-
     class_details(J, T, _, _, _),
     write(T), nl.
 
+/**********************************************************************
+* 6) Who teaches at the same time as Dr. J. Leidig?
+*class_details(691, '6:00PM', '8:50PM', 'M', 'EC 612').
+* Inputs: (Professor)
+* Description: Returns professors who teach at the same times as
+* Professor.
+**********************************************************************/
+answer_six(P) :-
+    teaches(P, C),
+    class_details(C, S, _, D, _),
+    class_details(Y, S, _, D, _),
+    teaches(Z, Y),
+    write(Z), nl.
+
 
 /**
 * Print answers to questions.
@@ -265,6 +279,10 @@ print_answers :-
     findall(X, answer_four('TR', '10:00AM'), _), nl,
 
     write("5 - When do Dr. J. Leidig and Dr. El-Said teach at the same time?\n"), nl,
-    answer_five("Dr. El-Said", "Dr. J. Leidig"), nl.
+    answer_five("Dr. El-Said", "Dr. J. Leidig"), nl,
+
+    /** TODO: Remove duplicates from this answer. */
+    write("6: \n"), nl,
+    setof(X, answer_six("Dr. J. Leidig"), X), nl.
 
 ?- print_answers.
