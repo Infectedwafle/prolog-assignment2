@@ -21,80 +21,96 @@
 /**
 * Define the professors.
 */
-professor(engelsma).
-professor(lange).
-professor(p_leidig).
-professor(kalafut).
-professor(wolffe).
-professor(kurmas).
-professor(schymik).
-professor(peterman).
-professor(el-said).
-professor(scripps).
-professor(j_leidig).
-professor(trefftz).
-professor(alsabbagh).
-professor(jorgensen).
-professor(nandigam).
-professor(posada).
-professor(du).
+profesor("Dr. Engelsma").
+profesor("Mr. Lange").
+profesor("Dr. P. Leidig").
+profesor("Dr. Kalafut").
+profesor("Dr. Wolffe").
+profesor("Dr. Kurmas").
+profesor("Dr. Schymik").
+profesor("Ms. Peterman").
+profesor("Dr. Engelsma").
+profesor("Dr. El-Said").
+profesor("Dr. Scripps").
+profesor("Dr. J. Leidig").
+profesor("Dr. Trefftz").
+profesor("Dr. Kalafut").
+profesor("Dr. Alsabbagh").
+profesor("Dr. Jorgensen").
+profesor("Dr. Nandigam").
+profesor("Mr. Lange").
+profesor("Dr. El-Said").
+profesor("Ms. Posada").
+profesor("Dr. Du").
+profesor("Dr. J. Leidig").
+profesor("Dr. J. Leidig").
+profesor("Dr. J. Leidig").
 
 /**
 * Define the students.
 */
-student(jim).
-student(pam).
-student(kara_thrace).
-student(gaius_baltar).
+student("Jim").
+student("Pam").
+student("Kara Thrace").
+student("Gaius Baltar").
 
 /**
 * Define the department each professor belongs to.
 */
-department(engelsma, 'CS').
-department(lange, 'IS').
-department(p_leidig, 'IS').
-department(kalafut, 'CS').
-department(wolffe, 'CS').
-department(kurmas, 'CS').
-department(schymik, 'IS').
-department(peterman, 'IS').
-department(el-said, 'CS').
-department(scripps, 'CS').
-department(j_leidig, 'CS').
-department(trefftz, 'CS').
-department(alsabbagh, 'CS').
-department(jorgensen, 'CS').
-department(nandigam, 'CS').
-department(posada, 'IS').
-department(du, 'IS').
+department("Dr. Engelsma", "CS").
+department("Mr. Lange", "IS").
+department("Dr. P. Leidig", "IS").
+department("Dr. Kalafut", "CS").
+department("Dr. Wolffe", "CS").
+department("Dr. Kurmas", "CS").
+department("Dr. Schymik", "IS").
+department("Ms. Peterman", "IS").
+department("Dr. Engelsma", "CS").
+department("Dr. El-Said", "IS").
+department("Dr. Scripps", "CS").
+department("Dr. J. Leidig", "CS").
+department("Dr. Trefftz", "CS").
+department("Dr. Kalafut", "CS").
+department("Dr. Alsabbagh", "CS").
+department("Dr. Jorgensen", "CS").
+department("Dr. Nandigam", "CS").
+department("Mr. Lange", "IS").
+department("Dr. El-Said", "IS").
+department("Ms. Posada", "IS").
+department("Dr. Du", "IS").
+department("Dr. J. Leidig", "CIS").
+department("Dr. J. Leidig", "CIS").
+department("Dr. J. Leidig", "CIS").
+
 
 /**
 * Define the class names.
 */
-class_name(467, 'CS Project').
-class_name(463, 'IS Project').
-class_name(460, 'MIS').
-class_name(457, 'Data Communications').
-class_name(452, 'OS Concepts').
-class_name(451, 'Computer Architecture').
-class_name(450, 'IS Project Management').
-class_name(443, 'Software Dev Tools').
-class_name(437, 'Dist. Computing').
-class_name(375, 'Wireless Networking Systems').
-class_name(371, 'Web App Programming').
-class_name(365, 'AI').
-class_name(361, 'System Programming').
-class_name(358, 'Info Insurance').
-class_name(353, 'Database').
-class_name(350, 'Software Engineering').
-class_name(343, 'Struct. of Programming Languages').
-class_name(339, 'IT Project Management').
-class_name(337, 'Network Systems Management').
-class_name(333, 'DB Management and Implementation').
-class_name(330, 'System Analysis and Design').
-class_name(661, 'Medical and BioInformatics').
-class_name(671, 'Info Visualization').
-class_name(691, 'MBI Capstone').
+class_name(467, "CS Project").
+class_name(463, "IS Project").
+class_name(460, "MIS").
+class_name(457, "Data Communications").
+class_name(452, "OS Concepts").
+class_name(451, "Computer Architecture").
+class_name(450, "IS Project Management").
+class_name(443, "Software Development Tools").
+class_name(437, "Distributed Computing").
+class_name(375, "Wireless Networking Systems").
+class_name(371, "Web Applicatino Programming").
+class_name(365, "AI").
+class_name(361, "System Programming").
+class_name(358, "Information Insurance").
+class_name(353, "Database").
+class_name(350, "Software Engineering").
+class_name(343, "Structure of Programming Languages").
+class_name(339, "IT Project Management").
+class_name(337, "Network Systems Management").
+class_name(333, "DB Management and Implementation").
+class_name(330, "Systems Analysis and Design").
+class_name(661, "Medical and BioInformatics").
+class_name(671, "Information Visualization").
+class_name(691, "MBI Capstone").
+
 
 /**
 * Define class times and locations. The fact can be read like this:
@@ -129,46 +145,46 @@ class_details(691, '6:00PM', '8:50PM', 'M', 'EC 612').
 /**
 * Define the classes each professor teaches.
 */
-teaches(engelsma, 467).
-teaches(lange, 463).
-teaches(p_leidig, 460).
-teaches(kalafut, 457).
-teaches(wolffe, 452).
-teaches(kurmas, 451).
-teaches(schymik, 450).
-teaches(peterman, 443).
-teaches(engelsma, 437).
-teaches(el-said, 375).
-teaches(scripps, 371).
-teaches(j_leidig, 365).
-teaches(trefftz, 361).
-teaches(kalafut, 358).
-teaches(alsabbagh, 353).
-teaches(jorgensen, 350).
-teaches(nandigam, 343).
-teaches(lange, 339).
-teaches(el-said, 337).
-teaches(posada, 333).
-teaches(du, 330).
-teaches(j_leidig, 661).
-teaches(j_leidig, 671).
-teaches(j_leidig, 691).
+teaches("Dr. Engelsma", 467).
+teaches("Mr. Lange", 463).
+teaches("Dr. P. Leidig", 460).
+teaches("Dr. Kalafut", 457).
+teaches("Dr. Wolffe", 452).
+teaches("Dr. Kurmas", 451).
+teaches("Dr. Schymik", 450).
+teaches("Ms. Peterman", 443).
+teaches("Dr. Engelsma", 437).
+teaches("Dr. El-Said", 375).
+teaches("Dr. Scripps", 371).
+teaches("Dr. J. Leidig", 365).
+teaches("Dr. Trefftz", 361).
+teaches("Dr. Kalafut", 358).
+teaches("Dr. Alsabbagh", 353).
+teaches("Dr. Jorgensen", 350).
+teaches("Dr. Nandigam", 343).
+teaches("Mr. Lange", 339).
+teaches("Dr. El-Said", 337).
+teaches("Ms. Posada", 333).
+teaches("Dr. Du", 330).
+teaches("Dr. J. Leidig", 661).
+teaches("Dr. J. Leidig", 671).
+teaches("Dr. J. Leidig", 691).
 
 /**
 * Define the classes each student is taking.
 */
-taking(jim, 467).
-taking(jim, 452).
-taking(jim, 457).
-taking(pam, 437).
-taking(pam, 457).
-taking(pam, 452).
-taking(kara_thrace, 467).
-taking(kara_thrace, 452).
-taking(kara_thrace, 365).
-taking(gaius_baltar, 463).
-taking(gaius_baltar, 460).
-taking(gaius_baltar, 375).
+taking("Jim", 467).
+taking("Jim", 452).
+taking("Jim", 457).
+taking("Pam", 437).
+taking("Pam", 457).
+taking("Pam", 452).
+taking("Kara Thrace", 467).
+taking("Kara Thrace", 452).
+taking("Kara Thrace", 365).
+taking("Gaius Baltar", 463).
+taking("Gaius Baltar", 460).
+taking("Gaius Baltar", 375).
 
 
 /**********************************************************************
@@ -181,7 +197,7 @@ taking(gaius_baltar, 375).
 **********************************************************************/
 answer_one(P, C) :-
     teaches(P, C),
-    write('CIS'),write(C),nl.
+    write("CIS "),write(C),nl.
 
 /**********************************************************************
 * 2) Does Dr. J. Leidig teach Database?
@@ -193,7 +209,7 @@ answer_one(P, C) :-
 * Description: Returns whether or not Professor teaches Database.
 **********************************************************************/
 answer_two(P) :-
-    teaches(P, 353).
+    teaches(P, 353) -> write(yes),nl; write(no), nl.
 
 
 /**********************************************************************
@@ -202,7 +218,7 @@ answer_two(P) :-
 * Inputs: (Prof, Class, Start, End, Days, Location)
 * Description: Returns Professor's schedule.
 **********************************************************************/
-answer_three(P, C, S, E, D, L) :-
+answer_three(P, _, S, E, D, L) :-
     teaches(P, X),
     class_details(X, S, E, D, L),
     write('Teaches CIS'),write(X),write(' from '),
@@ -217,7 +233,16 @@ answer_three(P, C, S, E, D, L) :-
 * Description: Returns who teaches what on Days at Time.
 **********************************************************************/
 answer_four(D, T) :-
-    class_details(_, T, _, D, _).
+    class_details(C, T, _, D, _), teaches(X, C),
+    write(X), nl.
+
+
+answer_five(X, Y) :-
+    teaches(X, I),
+    teaches(Y, J),
+    class_details(I, T, _, _, _),
+    class_details(J, T, _, _, _),
+    write(T), nl.
 
 
 /**
@@ -226,18 +251,19 @@ answer_four(D, T) :-
 * @TODO: Print variable values instead of memory addresses.
 */
 print_answers :-
-    write('What does Dr. J. Leidig teach?'),
-    findall(X, answer_one(j_leidig, X), Q),nl,
+    write("1 - What does Dr. J. Leidig teach?\n"), nl,
+    findall(X, answer_one("Dr. J. Leidig", X), _), nl,
 
-    /*
-    write('Does Dr. J. Leidig teach Database?'),
-    bagof(X, answer_two(j_leidig), Q),write(Q),nl,*/
+    write("Does Dr. J. Leidig teach Database?\n"), nl,
+    answer_two("Dr. J. Leidig"),nl,
 
-    write("What is Dr. J. Leidig's schedule?"), nl,
-    findall(X, answer_three(j_leidig, X, S, E, D, L), Schedule),nl,
+    write("3 - What is Dr. J. Leidig's schedule?\n"), nl,
+    findall(X, answer_three("Dr. J. Leidig", X, _, _, _, _), _), nl,
 
-    write("Who teaches what on TTH at 10AM?"),nl,
-    findall(X, answer_four('TR', '10AM'), List),write(List),nl.
+    write("4 - Who teaches what on Tuesday and Thursday at 10AM?\n"), nl,
+    findall(X, answer_four('TR', '10:00AM'), _), nl,
 
+    write("5 - When do Dr. J. Leidig and Dr. El-Said teach at the same time?\n"), nl,
+    answer_five("Dr. El-Said", "Dr. J. Leidig"), nl.
 
 ?- print_answers.
