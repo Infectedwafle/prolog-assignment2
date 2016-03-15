@@ -206,7 +206,6 @@ answer_one(P, C) :-
 answer_two(P) :-
     teaches(P, 353) -> write(yes),nl; write(no), nl.
 
-
 /**********************************************************************
 * 3) What is Dr. J. Leidig's schedule?
 * class_details(691, '6:00PM', '8:50PM', 'M', 'EC 612').
@@ -219,7 +218,6 @@ answer_three(P, _, S, E, D, L) :-
     write('Teaches CIS'),write(X),write(' from '),
     write(S),write(' to '),write(E),write(' on '),
     write(D),write(' at '),write(L),nl.
-
 
 /**********************************************************************
 * 4) Who is scheduled to teach what subject on TTH, 10AM?
@@ -247,7 +245,7 @@ answer_five(X, Y) :-
 
 /**********************************************************************
 * 6) Who teaches at the same time as Dr. J. Leidig?
-*class_details(691, '6:00PM', '8:50PM', 'M', 'EC 612').
+*
 * Inputs: (Professor)
 * Description: Returns professors who teach at the same times as
 * Professor.
@@ -259,6 +257,16 @@ answer_six(P) :-
     teaches(Z, Y),
     write(Z), nl.
 
+/**********************************************************************
+* 7) What courses do Jim and Pam have in common?
+*
+* Inputs: (Student1, Student2)
+* Description: Returns classes Student1 and Student2 have in common.
+**********************************************************************/
+answer_seven(X, Y) :-
+    taking(X, C),
+    taking(Y, C),
+    write(C), nl.
 
 /**
 * Print answers to questions.
@@ -282,7 +290,10 @@ print_answers :-
     answer_five("Dr. El-Said", "Dr. J. Leidig"), nl,
 
     /** TODO: Remove duplicates from this answer. */
-    write("6: \n"), nl,
-    setof(X, answer_six("Dr. J. Leidig"), X), nl.
+    write("6 - Who teaches at the same time as Dr. J. Leidig? \n"), nl,
+    setof(X, answer_six("Dr. J. Leidig"), X), nl,
+
+    write("7 - What classes do Jim and Pam have in common?\n"), nl,
+    findall(X, answer_seven("Jim", "Pam"), Y), nl.
 
 ?- print_answers.
