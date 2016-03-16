@@ -19,68 +19,32 @@
 */
 
 /**
-* Define the professors.
+* Define the professors and their departments.
 */
-professor("Dr. Engelsma").
-professor("Mr. Lange").
-professor("Dr. P. Leidig").
-professor("Dr. Kalafut").
-professor("Dr. Wolffe").
-professor("Dr. Kurmas").
-professor("Dr. Schymik").
-professor("Ms. Peterman").
-professor("Dr. Engelsma").
-professor("Dr. El-Said").
-professor("Dr. Scripps").
-professor("Dr. J. Leidig").
-professor("Dr. Trefftz").
-professor("Dr. Kalafut").
-professor("Dr. Alsabbagh").
-professor("Dr. Jorgensen").
-professor("Dr. Nandigam").
-professor("Mr. Lange").
-professor("Dr. El-Said").
-professor("Ms. Posada").
-professor("Dr. Du").
-professor("Dr. J. Leidig").
-professor("Dr. J. Leidig").
-professor("Dr. J. Leidig").
-
-/**
-* Define the students.
-*/
-student("Jim").
-student("Pam").
-student("Kara Thrace").
-student("Gaius Baltar").
-
-/**
-* Define the department each professor belongs to.
-*/
-department("Dr. Engelsma", "CS").
-department("Mr. Lange", "IS").
-department("Dr. P. Leidig", "IS").
-department("Dr. Kalafut", "CS").
-department("Dr. Wolffe", "CS").
-department("Dr. Kurmas", "CS").
-department("Dr. Schymik", "IS").
-department("Ms. Peterman", "IS").
-department("Dr. Engelsma", "CS").
-department("Dr. El-Said", "IS").
-department("Dr. Scripps", "CS").
-department("Dr. J. Leidig", "CS").
-department("Dr. Trefftz", "CS").
-department("Dr. Kalafut", "CS").
-department("Dr. Alsabbagh", "CS").
-department("Dr. Jorgensen", "CS").
-department("Dr. Nandigam", "CS").
-department("Mr. Lange", "IS").
-department("Dr. El-Said", "IS").
-department("Ms. Posada", "IS").
-department("Dr. Du", "IS").
-department("Dr. J. Leidig", "CIS").
-department("Dr. J. Leidig", "CIS").
-department("Dr. J. Leidig", "CIS").
+professor("Dr. Engelsma", "CS").
+professor("Mr. Lange", "IS").
+professor("Dr. P. Leidig", "IS").
+professor("Dr. Kalafut", "CS").
+professor("Dr. Wolffe", "CS").
+professor("Dr. Kurmas", "CS").
+professor("Dr. Schymik", "IS").
+professor("Ms. Peterman", "IS").
+professor("Dr. Engelsma", "CS").
+professor("Dr. El-Said", "IS").
+professor("Dr. Scripps", "CS").
+professor("Dr. J. Leidig", "CS").
+professor("Dr. Trefftz", "CS").
+professor("Dr. Kalafut", "CS").
+professor("Dr. Alsabbagh", "CS").
+professor("Dr. Jorgensen", "CS").
+professor("Dr. Nandigam", "CS").
+professor("Mr. Lange", "IS").
+professor("Dr. El-Said", "IS").
+professor("Ms. Posada", "IS").
+professor("Dr. Du", "IS").
+professor("Dr. J. Leidig", "CIS").
+professor("Dr. J. Leidig", "CIS").
+professor("Dr. J. Leidig", "CIS").
 
 /**
 * Define class times and locations. The fact can be read like this:
@@ -141,6 +105,14 @@ teaches("Dr. J. Leidig", 671).
 teaches("Dr. J. Leidig", 691).
 
 /**
+* Define the students.
+*/
+student("Jim").
+student("Pam").
+student("Kara Thrace").
+student("Gaius Baltar").
+
+/**
 * Define the classes each student is taking.
 */
 taking("Jim", 467).
@@ -164,8 +136,7 @@ taking("Gaius Baltar", 375).
 * Description: Returns the courses Professor teaches.
 **********************************************************************/
 answer_one(P, C) :-
-    teaches(P, C),
-    write("CIS "), write(C), nl.
+    teaches(P, C), write("CIS "), write(C), nl.
 
 /**********************************************************************
 * 2) Does Dr. J. Leidig teach Database?
@@ -184,8 +155,9 @@ answer_two(P) :-
 **********************************************************************/
 answer_three(P, _, S, E, D, L) :-
     teaches(P, X),
-    class_details(X, _, S, E, D, L),
-    write("Teaches CIS"), write(X), write(" from "),
+    class_details(X, N, S, E, D, L),
+    write("Teaches CIS"), write(X),
+    write(" ("), write(N), write(")"), write(" from "),
     write(S),write(" to "), write(E), write(" on "),
     write(D),write(" at "), write(L), nl.
 
@@ -196,8 +168,7 @@ answer_three(P, _, S, E, D, L) :-
 * Description: Returns who teaches what on Days at Time.
 **********************************************************************/
 answer_four(D, T) :-
-    class_details(C, _, T, _, D, _), teaches(X, C),
-    write(X), nl.
+    class_details(C, _, T, _, D, _), teaches(X, C), write(X), nl.
 
 /**********************************************************************
 * 5) When do Dr. J. Leidig and Dr. El-Said teach at the same time?
@@ -235,9 +206,7 @@ answer_six(P) :-
 * Description: Returns classes Student1 and Student2 have in common.
 **********************************************************************/
 answer_seven(X, Y) :-
-    taking(X, C),
-    taking(Y, C),
-    write("CIS"),write(C), nl.
+    taking(X, C), taking(Y, C), write("CIS"), write(C), nl.
 
 /**********************************************************************
 * 8) Who is taking CS courses?
@@ -246,9 +215,7 @@ answer_seven(X, Y) :-
 * Description: Returns a list of students taking at least one CS class.
 **********************************************************************/
 answer_eight(S):-
-    taking(S, C),
-    teaches(P, C),
-    department(P, "CS").
+    taking(S, C), teaches(P, C), professor(P, "CS").
 
 /**********************************************************************
 * 9) What types of courses is Gaius Baltar taking?
@@ -261,10 +228,7 @@ answer_eight(S):-
 * currently taking.
 **********************************************************************/
 answer_nine(S) :-
-    taking(S, C),
-    teaches(P, C),
-    department(P, D),
-    write(D), nl.
+    taking(S, C), teaches(P, C), professor(P, D), write(D), nl.
 
 /**********************************************************************
 * 10) Are there any scheduling conflicts of profs or locations?
