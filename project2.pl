@@ -115,30 +115,30 @@ class_name(691, "MBI Capstone").
 *
 * class_details(class number, start time, end time, days, location)
 */
-class_details(467, '10:00AM', '10:50AM', 'MWF', 'MAK-B-1-118').
-class_details(463, '2:00PM', '2:50PM', 'MWF', 'MAK-D-2-123').
-class_details(460, '10:00AM', '11:15AM', 'TR', 'MAK-B-1-116').
-class_details(457, '2:00PM', '2:50PM', 'MWF', 'MAK-D-1-117').
-class_details(452, '1:00PM', '1:50PM', 'MWF', 'MAK-D-1-117').
-class_details(451, '10:00AM', '10:50AM', 'MWF', 'MAK-B-1-118').
-class_details(450, '12:00PM', '12:50PM', 'MWF', 'MAK-D-1-117').
-class_details(443, '11:00AM', '11:50AM', 'MWF', 'MAK-B-1-124').
-class_details(437, '10:00AM', '10:50AM', 'MWF', 'MAK-B-1-118').
-class_details(375, '6:00PM', '7:50PM', 'R', 'EC 612').
-class_details(371, '4:00PM', '5:15PM', 'TR', 'MAK-D-1-117').
-class_details(365, '10:00AM', '11:15AM', 'TR', 'MAK-D-1-117').
-class_details(361, '4:00PM', '5:15PM', 'MW', 'MAK-B-1-116').
-class_details(358, '3:00PM', '3:50PM', 'MWF', 'MAK-A-1-105').
-class_details(353, '12:00PM', '12:50PM', 'MWF', 'MAK-B-1-118').
-class_details(350, '10:00AM', '10:50AM', 'MWF', 'MAK-D-1-117').
-class_details(343, '1:00PM', '1:50PM', 'MWF', 'MAK-B-1-124').
-class_details(339, '1:00PM', '2:15PM', 'TR', 'MAK-A-1-105').
-class_details(337, '3:00PM', '3:50PM', 'TR', 'MAK-B-1-124').
-class_details(333, '6:00PM', '8:50PM', 'W', 'MAK-D-1-117').
-class_details(330, '9:00AM', '9:50AM', 'MWF', 'MAK-D-1-117').
-class_details(661, '6:00PM', '8:50PM', 'T', 'EC 612').
-class_details(671, '6:00PM', '8:50PM', 'R', 'EC 612').
-class_details(691, '6:00PM', '8:50PM', 'M', 'EC 612').
+class_details(467, "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
+class_details(463, "2:00PM", "2:50PM", "MWF", "MAK-D-2-123").
+class_details(460, "10:00AM", "11:15AM", "TR", "MAK-B-1-116").
+class_details(457, "2:00PM", "2:50PM", "MWF", "MAK-D-1-117").
+class_details(452, "1:00PM", "1:50PM", "MWF", "MAK-D-1-117").
+class_details(451, "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
+class_details(450, "12:00PM", "12:50PM", "MWF", "MAK-D-1-117").
+class_details(443, "11:00AM", "11:50AM", "MWF", "MAK-B-1-124").
+class_details(437, "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
+class_details(375, "6:00PM", "7:50PM", "R", "EC 612").
+class_details(371, "4:00PM", "5:15PM", "TR", "MAK-D-1-117").
+class_details(365, "10:00AM", "11:15AM", "TR", "MAK-D-1-117").
+class_details(361, "4:00PM", "5:15PM", "MW", "MAK-B-1-116").
+class_details(358, "3:00PM", "3:50PM", "MWF", "MAK-A-1-105").
+class_details(353, "12:00PM", "12:50PM", "MWF", "MAK-B-1-118").
+class_details(350, "10:00AM", "10:50AM", "MWF", "MAK-D-1-117").
+class_details(343, "1:00PM", "1:50PM", "MWF", "MAK-B-1-124").
+class_details(339, "1:00PM", "2:15PM", "TR", "MAK-A-1-105").
+class_details(337, "3:00PM", "3:50PM", "TR", "MAK-B-1-124").
+class_details(333, "6:00PM", "8:50PM", "W", "MAK-D-1-117").
+class_details(330, "9:00AM", "9:50AM", "MWF", "MAK-D-1-117").
+class_details(661, "6:00PM", "8:50PM", "T", "EC 612").
+class_details(671, "6:00PM", "8:50PM", "R", "EC 612").
+class_details(691, "6:00PM", "8:50PM", "M", "EC 612").
 
 /**
 * Define the classes each professor teaches.
@@ -206,16 +206,16 @@ answer_two(P) :-
 
 /**********************************************************************
 * 3) What is Dr. J. Leidig's schedule?
-* class_details(691, '6:00PM', '8:50PM', 'M', 'EC 612').
+*
 * Inputs: (Prof, Class, Start, End, Days, Location)
 * Description: Returns Professor's schedule.
 **********************************************************************/
 answer_three(P, _, S, E, D, L) :-
     teaches(P, X),
     class_details(X, S, E, D, L),
-    write('Teaches CIS'), write(X), write(' from '),
-    write(S),write(' to '), write(E), write(' on '),
-    write(D),write(' at '), write(L), nl.
+    write("Teaches CIS"), write(X), write(" from "),
+    write(S),write(" to "), write(E), write(" on "),
+    write(D),write(" at "), write(L), nl.
 
 /**********************************************************************
 * 4) Who is scheduled to teach what subject on TTH, 10AM?
@@ -344,7 +344,7 @@ print_answers :-
     findall(X3, answer_three("Dr. J. Leidig", X3, _, _, _, _), _), nl,
 
     write("4 - Who teaches what on Tuesday and Thursday at 10AM?\n"), nl,
-    findall(_, answer_four('TR', '10:00AM'), _), nl,
+    findall(_, answer_four("TR", "10:00AM"), _), nl,
 
     write("5 - When do Dr. J. Leidig and Dr. El-Said teach at the same time?\n"), nl,
     answer_five("Dr. El-Said", "Dr. J. Leidig"), nl,
