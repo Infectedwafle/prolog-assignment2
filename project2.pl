@@ -165,7 +165,7 @@ answer_three(P, _, S, E, D, L) :-
 * 4) Who is scheduled to teach what subject on TTH, 10AM?
 *
 * Inputs: (Days, StartTime)
-* Description: Returns who teaches what on Days at Time.
+* Description: Returns who teaches what on Days at StartTime.
 **********************************************************************/
 answer_four(D, T) :-
     class_details(C, _, T, _, D, _), teaches(X, C), write(X), nl.
@@ -240,9 +240,9 @@ answer_nine(S) :-
 *   1) Professors who teach a class at the same time in different locations
 *   2) Classrooms that host more than one class at the same time
 **********************************************************************/
-answer_ten(P, L) :-
+% answer_ten(P, L) :-
     % professor_conflict(P) ; location_conflict(L).
-    write("Not done!"), nl.
+    % write("Not done!"), nl.
 
 % /**********************************************************************
 % * Determines whether or not a professor has a conflicting schedule.
@@ -297,6 +297,6 @@ print_answers :-
 
     /** TODO: Don't print duplicates. */
     write("9 - What types of courses is Gaius Baltar taking?\n"), nl,
-    setof(X9, answer_nine("Gaius Baltar"), Q9), nl.
+    setof(_, answer_nine("Gaius Baltar"), _), nl.
 
 ?- print_answers.
