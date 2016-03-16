@@ -253,6 +253,7 @@ answer_six(P) :-
     class_details(C, S, _, D, _),
     class_details(Y, S, _, D, _),
     teaches(Z, Y),
+    \+ Z = P,
     write(Z), nl.
 
 /**********************************************************************
@@ -264,7 +265,7 @@ answer_six(P) :-
 answer_seven(X, Y) :-
     taking(X, C),
     taking(Y, C),
-    write(C), nl.
+    write("CIS"),write(C), nl.
 
 /**********************************************************************
 * 8) Who is taking CS courses?
@@ -275,38 +276,91 @@ answer_seven(X, Y) :-
 answer_eight(S):-
     taking(S, C),
     teaches(P, C),
-    department(P, "CS"),
-    write(S), nl.
+    department(P, "CS").
 
+/**********************************************************************
+* 9) What types of courses is Gaius Baltar taking?
+* department("Dr. J. Leidig", "CIS").
+* teaches("Dr. J. Leidig", 691).
+* taking("Gaius Baltar", 375).
+
+* Inputs: (Student)
+* Description: Returns the types of courses (CS/IS) that Student is
+* currently taking.
+**********************************************************************/
+answer_nine(S) :-
+    taking(S, C),
+    teaches(P, C),
+    department(P, D),
+    write(D), nl.
+
+/**********************************************************************
+* 10) Are there any scheduling conflicts of profs or locations?
+*
+* Inputs: (Professor)
+* Description: Returns a list of professors/locations that have
+* scheduling conflicts. That is, it builds a list of either:
+*
+*   1) Professors who teach a class at the same time in different locations
+*   2) Classrooms that host more than one class at the same time
+**********************************************************************/
+answer_ten(P, L) :-
+    % professor_conflict(P) ; location_conflict(L).
+    write("Not done!"), nl.
+
+% /**********************************************************************
+% * Determines whether or not a professor has a conflicting schedule.
+% *
+% * Inputs: (Professor)
+% **********************************************************************/
+% professor_conflict(P) :-
+%     teaches(P, C),
+%     class_details(X, S, E, D, L), % For each class X that professor P teaches...
+%     class_details(Y, S, _, D, _) ; class_details(Y, _,  E, D, _), % ... does X have the same start or end time as another class Y...
+%     teaches(P, Y), % ... that is also taught by professor P?
+%     write(Y), nl.
+%
+% /**********************************************************************
+% * Determines whether or not there is a scheduling conflict for a given
+% * classroom.
+% *
+% * Inputs: (Location)
+% **********************************************************************/
+% location_conflict(L) :-
+%     class_details(X, S, _, D, L), class_details(Y, S, _, D, L) ;
+%     class_details(X, _, E, D, L), class_details(Y, _, E, D, L).
 
 /**
 * Print answers to questions.
 */
 print_answers :-
     write("1 - What does Dr. J. Leidig teach?\n"), nl,
-    findall(X, answer_one("Dr. J. Leidig", X), _), nl,
+    findall(X1, answer_one("Dr. J. Leidig", X1), _), nl,
 
     write("Does Dr. J. Leidig teach Database?\n"), nl,
-    answer_two("Dr. J. Leidig"),nl,
+    answer_two("Dr. J. Leidig"), nl,
 
     write("3 - What is Dr. J. Leidig's schedule?\n"), nl,
-    findall(X, answer_three("Dr. J. Leidig", X, _, _, _, _), _), nl,
+    findall(X3, answer_three("Dr. J. Leidig", X3, _, _, _, _), _), nl,
 
     write("4 - Who teaches what on Tuesday and Thursday at 10AM?\n"), nl,
-    findall(X, answer_four('TR', '10:00AM'), _), nl,
+    findall(_, answer_four('TR', '10:00AM'), _), nl,
 
     write("5 - When do Dr. J. Leidig and Dr. El-Said teach at the same time?\n"), nl,
     answer_five("Dr. El-Said", "Dr. J. Leidig"), nl,
 
-    /** TODO: Remove duplicates from this answer. */
     write("6 - Who teaches at the same time as Dr. J. Leidig? \n"), nl,
-    setof(X, answer_six("Dr. J. Leidig"), X), nl,
+    findall(_, answer_six("Dr. J. Leidig"), _), nl,
 
     write("7 - What classes do Jim and Pam have in common?\n"), nl,
-    findall(X, answer_seven("Jim", "Pam"), Y), nl,
+    findall(_, answer_seven("Jim", "Pam"), _), nl,
 
-    /** TODO: Remove duplicates from this answer. */
+    /** TODO: How to stop square brackets from printing? */
     write("8 - Who is taking CS courses?\n"), nl,
-    setof(X, answer_eight(_), X), nl.
+    setof(X8, answer_eight(X8), Q8), write(Q8), nl,
+
+    /** TODO: Don't print duplicates. */
+    write("9 - What types of courses is Gaius Baltar taking?\n"), nl,
+    setof(X9, answer_nine("Gaius Baltar"), Q9), nl.
 
 ?- print_answers.
