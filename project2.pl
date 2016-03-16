@@ -83,62 +83,34 @@ department("Dr. J. Leidig", "CIS").
 department("Dr. J. Leidig", "CIS").
 
 /**
-* Define the class names.
-*/
-class_name(467, "CS Project").
-class_name(463, "IS Project").
-class_name(460, "MIS").
-class_name(457, "Data Communications").
-class_name(452, "OS Concepts").
-class_name(451, "Computer Architecture").
-class_name(450, "IS Project Management").
-class_name(443, "Software Development Tools").
-class_name(437, "Distributed Computing").
-class_name(375, "Wireless Networking Systems").
-class_name(371, "Web Applicatino Programming").
-class_name(365, "AI").
-class_name(361, "System Programming").
-class_name(358, "Information Insurance").
-class_name(353, "Database").
-class_name(350, "Software Engineering").
-class_name(343, "Structure of Programming Languages").
-class_name(339, "IT Project Management").
-class_name(337, "Network Systems Management").
-class_name(333, "DB Management and Implementation").
-class_name(330, "Systems Analysis and Design").
-class_name(661, "Medical and BioInformatics").
-class_name(671, "Information Visualization").
-class_name(691, "MBI Capstone").
-
-/**
 * Define class times and locations. The fact can be read like this:
 *
 * class_details(class number, start time, end time, days, location)
 */
-class_details(467, "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
-class_details(463, "2:00PM", "2:50PM", "MWF", "MAK-D-2-123").
-class_details(460, "10:00AM", "11:15AM", "TR", "MAK-B-1-116").
-class_details(457, "2:00PM", "2:50PM", "MWF", "MAK-D-1-117").
-class_details(452, "1:00PM", "1:50PM", "MWF", "MAK-D-1-117").
-class_details(451, "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
-class_details(450, "12:00PM", "12:50PM", "MWF", "MAK-D-1-117").
-class_details(443, "11:00AM", "11:50AM", "MWF", "MAK-B-1-124").
-class_details(437, "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
-class_details(375, "6:00PM", "7:50PM", "R", "EC 612").
-class_details(371, "4:00PM", "5:15PM", "TR", "MAK-D-1-117").
-class_details(365, "10:00AM", "11:15AM", "TR", "MAK-D-1-117").
-class_details(361, "4:00PM", "5:15PM", "MW", "MAK-B-1-116").
-class_details(358, "3:00PM", "3:50PM", "MWF", "MAK-A-1-105").
-class_details(353, "12:00PM", "12:50PM", "MWF", "MAK-B-1-118").
-class_details(350, "10:00AM", "10:50AM", "MWF", "MAK-D-1-117").
-class_details(343, "1:00PM", "1:50PM", "MWF", "MAK-B-1-124").
-class_details(339, "1:00PM", "2:15PM", "TR", "MAK-A-1-105").
-class_details(337, "3:00PM", "3:50PM", "TR", "MAK-B-1-124").
-class_details(333, "6:00PM", "8:50PM", "W", "MAK-D-1-117").
-class_details(330, "9:00AM", "9:50AM", "MWF", "MAK-D-1-117").
-class_details(661, "6:00PM", "8:50PM", "T", "EC 612").
-class_details(671, "6:00PM", "8:50PM", "R", "EC 612").
-class_details(691, "6:00PM", "8:50PM", "M", "EC 612").
+class_details(467, "CS Project", "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
+class_details(463, "IS Project", "2:00PM", "2:50PM", "MWF", "MAK-D-2-123").
+class_details(460, "MIS", "10:00AM", "11:15AM", "TR", "MAK-B-1-116").
+class_details(457, "Data Com", "2:00PM", "2:50PM", "MWF", "MAK-D-1-117").
+class_details(452, "OS", "1:00PM", "1:50PM", "MWF", "MAK-D-1-117").
+class_details(451, "Computer Architecture", "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
+class_details(450, "IS Project Management", "12:00PM", "12:50PM", "MWF", "MAK-D-1-117").
+class_details(443, "Software Dev Tools", "11:00AM", "11:50AM", "MWF", "MAK-B-1-124").
+class_details(437, "Dist. Computing", "10:00AM", "10:50AM", "MWF", "MAK-B-1-118").
+class_details(375, "Wireless Networking Systems", "6:00PM", "7:50PM", "R", "EC 612").
+class_details(371, "Web Apps", "4:00PM", "5:15PM", "TR", "MAK-D-1-117").
+class_details(365, "AI", "10:00AM", "11:15AM", "TR", "MAK-D-1-117").
+class_details(361, "System Programming", "4:00PM", "5:15PM", "MW", "MAK-B-1-116").
+class_details(358, "Information Assurance", "3:00PM", "3:50PM", "MWF", "MAK-A-1-105").
+class_details(353, "DB", "12:00PM", "12:50PM", "MWF", "MAK-B-1-118").
+class_details(350, "Software Engineering", "10:00AM", "10:50AM", "MWF", "MAK-D-1-117").
+class_details(343, "Programming Languages", "1:00PM", "1:50PM", "MWF", "MAK-B-1-124").
+class_details(339, "IT Project Management", "1:00PM", "2:15PM", "TR", "MAK-A-1-105").
+class_details(337, "Network Systems Management", "3:00PM", "3:50PM", "TR", "MAK-B-1-124").
+class_details(333, "DB Management and Implementation", "6:00PM", "8:50PM", "W", "MAK-D-1-117").
+class_details(330, "Systems Analysis and Design", "9:00AM", "9:50AM", "MWF", "MAK-D-1-117").
+class_details(661, "Medical and BioInformatics", "6:00PM", "8:50PM", "T", "EC 612").
+class_details(671, "Info Visualization", "6:00PM", "8:50PM", "R", "EC 612").
+class_details(691, "MBI Capstone", "6:00PM", "8:50PM", "M", "EC 612").
 
 /**
 * Define the classes each professor teaches.
@@ -212,7 +184,7 @@ answer_two(P) :-
 **********************************************************************/
 answer_three(P, _, S, E, D, L) :-
     teaches(P, X),
-    class_details(X, S, E, D, L),
+    class_details(X, _, S, E, D, L),
     write("Teaches CIS"), write(X), write(" from "),
     write(S),write(" to "), write(E), write(" on "),
     write(D),write(" at "), write(L), nl.
@@ -224,7 +196,7 @@ answer_three(P, _, S, E, D, L) :-
 * Description: Returns who teaches what on Days at Time.
 **********************************************************************/
 answer_four(D, T) :-
-    class_details(C, T, _, D, _), teaches(X, C),
+    class_details(C, _, T, _, D, _), teaches(X, C),
     write(X), nl.
 
 /**********************************************************************
@@ -237,8 +209,8 @@ answer_four(D, T) :-
 answer_five(X, Y) :-
     teaches(X, I),
     teaches(Y, J),
-    class_details(I, T, _, _, _),
-    class_details(J, T, _, _, _),
+    class_details(I, _, T, _, _, _),
+    class_details(J, _, T, _, _, _),
     write(T), nl.
 
 /**********************************************************************
@@ -250,8 +222,8 @@ answer_five(X, Y) :-
 **********************************************************************/
 answer_six(P) :-
     teaches(P, C),
-    class_details(C, S, _, D, _),
-    class_details(Y, S, _, D, _),
+    class_details(C, _, S, _, D, _),
+    class_details(Y, _, S, _, D, _),
     teaches(Z, Y),
     \+ Z = P,
     write(Z), nl.
