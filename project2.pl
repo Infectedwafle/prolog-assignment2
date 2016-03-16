@@ -21,30 +21,30 @@
 /**
 * Define the professors.
 */
-profesor("Dr. Engelsma").
-profesor("Mr. Lange").
-profesor("Dr. P. Leidig").
-profesor("Dr. Kalafut").
-profesor("Dr. Wolffe").
-profesor("Dr. Kurmas").
-profesor("Dr. Schymik").
-profesor("Ms. Peterman").
-profesor("Dr. Engelsma").
-profesor("Dr. El-Said").
-profesor("Dr. Scripps").
-profesor("Dr. J. Leidig").
-profesor("Dr. Trefftz").
-profesor("Dr. Kalafut").
-profesor("Dr. Alsabbagh").
-profesor("Dr. Jorgensen").
-profesor("Dr. Nandigam").
-profesor("Mr. Lange").
-profesor("Dr. El-Said").
-profesor("Ms. Posada").
-profesor("Dr. Du").
-profesor("Dr. J. Leidig").
-profesor("Dr. J. Leidig").
-profesor("Dr. J. Leidig").
+professor("Dr. Engelsma").
+professor("Mr. Lange").
+professor("Dr. P. Leidig").
+professor("Dr. Kalafut").
+professor("Dr. Wolffe").
+professor("Dr. Kurmas").
+professor("Dr. Schymik").
+professor("Ms. Peterman").
+professor("Dr. Engelsma").
+professor("Dr. El-Said").
+professor("Dr. Scripps").
+professor("Dr. J. Leidig").
+professor("Dr. Trefftz").
+professor("Dr. Kalafut").
+professor("Dr. Alsabbagh").
+professor("Dr. Jorgensen").
+professor("Dr. Nandigam").
+professor("Mr. Lange").
+professor("Dr. El-Said").
+professor("Ms. Posada").
+professor("Dr. Du").
+professor("Dr. J. Leidig").
+professor("Dr. J. Leidig").
+professor("Dr. J. Leidig").
 
 /**
 * Define the students.
