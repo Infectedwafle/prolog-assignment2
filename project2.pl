@@ -241,14 +241,7 @@ answer_nine(S) :-
 *   2) Classrooms that host more than one class at the same time
 **********************************************************************/
 answer_ten() :-
-    teaches(P, C),
-    class_details(C, _, S, _, D, _),
-    class_details(I, _, S, _, D, _),
-    teaches(P, I) ->  write(P), nl ;
-    class_details(C2, _, S, _, D, L),
-    class_details(_, _, S, _, D, L) -> write(L).
-    
-    
+    professor_conflict(_) ; location_conflict(_) -> write(yes), nl ; write(no), nl.
 
 /**********************************************************************
  * Determines whether or not a professor has a conflicting schedule.
@@ -256,16 +249,20 @@ answer_ten() :-
  * Inputs: ()
  **********************************************************************/
  professor_conflict(P) :-
-    
-% /**********************************************************************
-% * Determines whether or not there is a scheduling conflict for a given
-% * classroom.
-% *
-% * Inputs: (Location)
-% **********************************************************************/
-% location_conflict(L) :-
-%     class_details(X, S, _, D, L), class_details(Y, S, _, D, L) ;
-%     class_details(X, _, E, D, L), class_details(Y, _, E, D, L).
+     teaches(P, C),
+     class_details(C, _, S, _, D, _),
+     class_details(I, _, S, _, D, _),
+     teaches(P, I) -> write(P), write(" has schedule conflict!"), nl.
+
+/**********************************************************************
+* Determines whether or not there is a scheduling conflict for a given
+* classroom.
+*
+* Inputs: (Location)
+**********************************************************************/
+location_conflict(L) :-
+    class_details(_, _, S, _, D, L),
+    class_details(_, _, S, _, D, L) -> write(L), write(" has location conflict!"), nl.
 
 /**
 * Print answers to questions.
@@ -302,4 +299,5 @@ print_answers :-
 
     write("10 - Are there any scheduling conflicts of profs or locations?\n"), nl,
     findall(_, answer_ten(), _), nl.
+    
 ?- print_answers.
