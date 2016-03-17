@@ -227,8 +227,8 @@ answer_eight(S):-
 * Description: Returns the types of courses (CS/IS) that Student is
 * currently taking.
 **********************************************************************/
-answer_nine(S) :-
-    taking(S, C), teaches(P, C), professor(P, D), write(D), nl.
+answer_nine(S, D) :-
+    taking(S, C), teaches(P, C), professor(P, D).
 
 /**********************************************************************
 * 10) Are there any scheduling conflicts of profs or locations?
@@ -293,11 +293,10 @@ print_answers :-
     write("8 - Who is taking CS courses?\n"), nl,
     setof(X8, answer_eight(X8), Q8), write(Q8), nl,
 
-    /** TODO: Don't print duplicates. */
     write("9 - What types of courses is Gaius Baltar taking?\n"), nl,
-    setof(_, answer_nine("Gaius Baltar"), _), nl,
+    setof(_, answer_nine("Gaius Baltar", Q9), _), write(Q9), nl, nl,
 
     write("10 - Are there any scheduling conflicts of profs or locations?\n"), nl,
     findall(_, answer_ten(), _), nl.
-    
+
 ?- print_answers.
