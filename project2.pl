@@ -245,7 +245,7 @@ answer_ten() :-
 /**********************************************************************
  * Determines whether or not a professor has a conflicting schedule.
  *
- * Inputs: ()
+ * Inputs: (Professor)
  **********************************************************************/
  professor_conflict(P) :-
      teaches(P, C),
@@ -288,9 +288,8 @@ print_answers :-
     write("7 - What classes do Jim and Pam have in common?\n"), nl,
     findall(_, answer_seven("Jim", "Pam"), _), nl,
 
-    /** TODO: How to stop square brackets from printing? */
     write("8 - Who is taking CS courses?\n"), nl,
-    setof(X8, answer_eight(X8), Q8), write(Q8), nl,
+    setof(X8, answer_eight(X8), Q8), write(Q8), nl, nl,
 
     write("9 - What types of courses is Gaius Baltar taking?\n"), nl,
     setof(_, answer_nine("Gaius Baltar", Q9), _), write(Q9), nl, nl,
