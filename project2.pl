@@ -219,10 +219,7 @@ answer_eight(S):-
 
 /**********************************************************************
 * 9) What types of courses is Gaius Baltar taking?
-* department("Dr. J. Leidig", "CIS").
-* teaches("Dr. J. Leidig", 691).
-* taking("Gaius Baltar", 375).
-
+*
 * Inputs: (Student)
 * Description: Returns the types of courses (CS/IS) that Student is
 * currently taking.
@@ -241,7 +238,9 @@ answer_nine(S, D) :-
 *   2) Classrooms that host more than one class at the same time
 **********************************************************************/
 answer_ten() :-
-    professor_conflict(_) ; location_conflict(_) -> write(yes), nl ; write(no), nl.
+    professor_conflict(_) ; location_conflict(_) ->
+        write("Yes, there are conflicts!"), nl ;
+        write("No, everything's fine!"), nl.
 
 /**********************************************************************
  * Determines whether or not a professor has a conflicting schedule.
