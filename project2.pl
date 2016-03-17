@@ -304,31 +304,34 @@ answer_nine(S) :-
 *   1) Professors who teach a class at the same time in different locations
 *   2) Classrooms that host more than one class at the same time
 **********************************************************************/
-answer_ten(P, L) :-
-    % professor_conflict(P) ; location_conflict(L).
-    write("Not done!"), nl.
+answer_ten() :-
+    professor_conflict() -> write("Yes!") ; write("No!"), nl.
 
-% /**********************************************************************
-% * Determines whether or not a professor has a conflicting schedule.
-% *
-% * Inputs: (Professor)
-% **********************************************************************/
-% professor_conflict(P) :-
-%     teaches(P, C),
-%     class_details(X, S, E, D, L), % For each class X that professor P teaches...
-%     class_details(Y, S, _, D, _) ; class_details(Y, _,  E, D, _), % ... does X have the same start or end time as another class Y...
-%     teaches(P, Y), % ... that is also taught by professor P?
-%     write(Y), nl.
-%
-% /**********************************************************************
-% * Determines whether or not there is a scheduling conflict for a given
-% * classroom.
-% *
-% * Inputs: (Location)
-% **********************************************************************/
-% location_conflict(L) :-
-%     class_details(X, S, _, D, L), class_details(Y, S, _, D, L) ;
-%     class_details(X, _, E, D, L), class_details(Y, _, E, D, L).
+/**********************************************************************
+ * Determines whether or not a professor has a conflicting schedule.
+ *
+ * Inputs: (Professor)
+ **********************************************************************/
+ professor_conflict() :-
+    professor(P, C),
+    class_details(C, _, S, _, D, _),
+    class_details(I, _, S, _, D, _),
+    professor(P, I) ;
+    professor(P, C),
+    class_details(C, _, _, E, D, _),
+    class_details(I, _, _, E, D, _),
+    professor(P, I),
+    write(Y), nl.
+
+/**********************************************************************
+ * Determines whether or not there is a scheduling conflict for a given
+ * classroom.
+ *
+ * Inputs: (Location)
+ **********************************************************************/
+ %% location_conflict(L) :-
+ %%    class_details(X, S, _, D, L), class_details(Y, S, _, D, L) ;
+ %%    class_details(X, _, E, D, L), class_details(Y, _, E, D, L).
 
 /**
 * Print answers to questions.
@@ -361,6 +364,9 @@ print_answers :-
 
     /** TODO: Don't print duplicates. */
     write("9 - What types of courses is Gaius Baltar taking?\n"), nl,
-    setof(X9, answer_nine("Gaius Baltar"), Q9), nl.
+    setof(X9, answer_nine("Gaius Baltar"), Q9), nl,
+
+    write("10 - Are there any scheduling conflicts of profs or locations?\n"), nl,
+    answer_ten().
 
 ?- print_answers.
