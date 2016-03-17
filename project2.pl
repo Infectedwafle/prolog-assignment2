@@ -240,22 +240,23 @@ answer_nine(S) :-
 *   1) Professors who teach a class at the same time in different locations
 *   2) Classrooms that host more than one class at the same time
 **********************************************************************/
-% answer_ten(P, L) :-
-    % professor_conflict(P) ; location_conflict(L).
-    % write("Not done!"), nl.
+answer_ten() :-
+    teaches(P, C),
+    class_details(C, _, S, _, D, _),
+    class_details(I, _, S, _, D, _),
+    teaches(P, I) ->  write(P), nl ;
+    class_details(C2, _, S, _, D, L),
+    class_details(_, _, S, _, D, L) -> write(L).
+    
+    
 
-% /**********************************************************************
-% * Determines whether or not a professor has a conflicting schedule.
-% *
-% * Inputs: (Professor)
-% **********************************************************************/
-% professor_conflict(P) :-
-%     teaches(P, C),
-%     class_details(X, S, E, D, L), % For each class X that professor P teaches...
-%     class_details(Y, S, _, D, _) ; class_details(Y, _,  E, D, _), % ... does X have the same start or end time as another class Y...
-%     teaches(P, Y), % ... that is also taught by professor P?
-%     write(Y), nl.
-%
+/**********************************************************************
+ * Determines whether or not a professor has a conflicting schedule.
+ *
+ * Inputs: ()
+ **********************************************************************/
+ professor_conflict(P) :-
+    
 % /**********************************************************************
 % * Determines whether or not there is a scheduling conflict for a given
 % * classroom.
@@ -297,6 +298,8 @@ print_answers :-
 
     /** TODO: Don't print duplicates. */
     write("9 - What types of courses is Gaius Baltar taking?\n"), nl,
-    setof(_, answer_nine("Gaius Baltar"), _), nl.
+    setof(_, answer_nine("Gaius Baltar"), _), nl,
 
+    write("10 - Are there any scheduling conflicts of profs or locations?\n"), nl,
+    findall(_, answer_ten(), _), nl.
 ?- print_answers.
